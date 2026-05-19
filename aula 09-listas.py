@@ -158,19 +158,94 @@ Pop apaga o item da lista e retorna ele como valor pra voce, voce pede a remoç�
 # (uma lista para números pares e outra lista para números
 # ímpares). A leitura dos números é finalizada quando um número negativo é lido.
 
+# pares = []
+# impares = []
+# num = int(input("digite um numero inteiro: "))
+# while num > 0:
+#     if num%2 == 0:
+#         pares.append(num)
+#     else:
+#         impares.append(num)
+#     print(f"{pares}\n{impares}")
+#     num = int(input("digite um numero inteiro: "))
+# print(f"numero negativo digitado, as listas finais foram:\n{pares}\n{impares}")
+
 # 5. Elabore um programa que leia uma lista de no máximo 10
 # elementos reais, o programa deverá imprimir o maior e
 # segundo maior elemento e suas respectivas posições na
 # lista
 
+# lista = []
+# maior1 = 0
+# maior2 = 0
+# for i in range(10):
+#     num = float(input("digite um numero real: "))
+#     lista.append(num)
+#     if num > maior1:
+#         maior2 = maior1
+#         maior1 = num
+#     if maior1>num>maior2:
+#         maior2 = num
+
+# posicao1 = None
+# posicao2 = None
+# for j in range (len(lista)):
+#     if lista[j] == maior1:
+#         posicao1 = j
+#     if lista[j] == maior2:
+#         posicao2 = j
+#     if posicao1 and posicao2 is not None:
+#         break
+
+# print(f"Maior numero: {maior1}, sua posição: {posicao1}\n 2° Maior numero: {maior2}, sua posição: {posicao2}")
+
 # 6. Foram anotadas as idades e alturas de 30 alunos. Faça um
 # Programa que determine quantos alunos com mais de 13
 # anos possuem altura inferior à média de altura desses
 # alunos.
+
+# idades = []
+# alturas = []
+# for i in range(30):
+#     idade = int(input(f"digite a idade do {i}° aluno: "))
+#     altura = int(input(f"digite a altura do {i}° aluno(cm): "))
+#     alturas.append(altura)
+#     idades.append(idade)
+
+# altura_total = 0
+# for j in alturas:
+#     altura_total += j
+
+# media_altura = altura_total/len(idades)
+# abaixo_da_media = 0
+
+# for k in range (len(idades)):
+#     if idades[k]>13 and alturas[k] < media_altura:
+#         abaixo_da_media += 1
+
 # 7. Construa um programa que leia dois números inteiros: a e b
 # e uma lista com N valores inteiros (N fornecido pelo usuário).
 # O programa deverá imprimir quantos elementos da Lista
 # pertencem ao intervalo [a;b]
+
+# a = int(input("1° intervalo: "))
+# b = int(input("2° intervalo: "))
+# lista = []
+
+# tamanho = int(input("qual o tamanho da lista: "))
+# for i in range(tamanho):
+#     num = int(input(f"digite o {i}° item da lista: "))
+#     lista.append(num)
+
+# elementos = 0
+# for j in lista:
+#     if a<=j<=b:
+#         elementos += 1
+
+# if elementos == 1:
+#     print("existe 1 elemento dentro do intervalo a;b")
+# else:
+#     print(f"existem {elementos} dentro do intervalo a;b")
 
 # 8. Construa um programa que seja constituído de uma lista
 # GAB de 10 elementos caracteres ( esta lista pode ser
@@ -179,7 +254,26 @@ Pop apaga o item da lista e retorna ele como valor pra voce, voce pede a remoç�
 # deverá imprimir a nota de cada aluno (considerando que
 # cada questão vale 1,0 ponto). O programa deverá também
 # imprimir a média da sala
-# Python
+
+# GAB = ["a","b","c","d","e","d","c","b","a","b"]
+# alunos = []
+# respostas = []
+# for i in range(10):
+#     nome = input("digite o seu nome: ")
+#     for j in range(10):
+#         letra = input(f"digite a resposta da {j + 1} questão: ")
+#         letra = letra.lower()
+#         respostas.append(letra)
+#     alunos.append([nome,respostas])
+#     respostas = []
+
+# for k in alunos:
+#     respostas = k[1]
+#     nota = 0
+#     for v in range(len(respostas)):
+#         if respostas[v] == GAB[v]:
+#             nota += 1
+#     k.append(nota)
 
 # 9. Utilizando listas faça um programa que faça 5 perguntas para uma
 # pessoa sobre um crime. As perguntas são:
@@ -193,3 +287,30 @@ Pop apaga o item da lista e retorna ele como valor pra voce, voce pede a remoç�
 # positivamente a 2 questões ela deve ser classificada como
 # "Suspeita", entre 3 e 4 como "Cúmplice" e 5 como "Assassino".
 # Caso contrário, ele será classificado como "Inocente".
+
+suspeitos = []
+respostas = []
+qtde = int(input("quantas pessoas serão entrevistadas com sim ou não: "))
+for i in range(qtde):
+    nome = input("digite seu nome: ")
+    for j in range(5):
+        pergunta = input(f"Responda com sim ou não a {i+1}° pergunta: ")
+        respostas.append(pergunta)
+    suspeitos.append([nome,respostas])
+    respostas = []
+for k in suspeitos:
+    respostas = k[1]
+    pontuacao = 0
+    classificacao = ""
+    for m in range(len(respostas)):
+        if respostas[m] == "sim":
+            pontuacao += 1
+        if pontuacao < 2:
+            classificacao = "Inocente"
+        if pontuacao == 2:
+            classificacao = "Suspeita"
+        elif 2<pontuacao<=4:
+            classificacao = "Cúmplice"
+        else:
+            classificacao = "Assasino"
+    k.append(classificacao)
