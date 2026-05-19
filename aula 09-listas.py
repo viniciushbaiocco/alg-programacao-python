@@ -293,9 +293,12 @@ respostas = []
 qtde = int(input("quantas pessoas serão entrevistadas com sim ou não: "))
 for i in range(qtde):
     nome = input("digite seu nome: ")
-    for j in range(5):
-        pergunta = input(f"Responda com sim ou não a {i+1}° pergunta: ")
-        respostas.append(pergunta)
+    pergunta1 = input("Telefonou para a vítima? (sim ou não): ").lower
+    pergunta2 = input("Esteve no local do crime? (sim ou não): ").lower
+    pergunta3 = input("Mora perto da vítima? (sim ou não): ").lower
+    pergunta4 = input("Devia para a vítima? (sim ou não): ").lower
+    pergunta5 = input("Já trabalhou com a vítima? (sim ou não): ").lower
+    respostas.append([pergunta1,pergunta2,pergunta3,pergunta4,pergunta5])
     suspeitos.append([nome,respostas])
     respostas = []
 for k in suspeitos:
